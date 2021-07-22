@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    
+</body>
+
+<div class="body">
+<h1>
+
+
+    {% if submitted %}
+        vc agendou com sucesso!
+
+    {% else %}
+
+<form action="" method="POST">
+  <div id="content">  
+    <br>
+    <br>
+    <div class="bloco">
+        {% csrf_token %}
+      <div class="test">
+        {{form.as_p}}
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="bota">
+    <input type="submit" id="show-more" class="btn btn-primary btn-lg" value="Agendar">
+  </div>
+  <script type="text/javascript" src="../static/js/testr.js"></script>
+
+     {% endif %}
+</form>
+<form action="">
+  <div class="botao">
+      <a href="{% url 'app:calendar' %}" class="btn btn-primary btn-lg">calendar</a>
+  </div>
+</form>
+  <br>
+    <div class="filtro">
+      <select name="data" id="">
+        <option value="days">day</option>
+        <option value="">test</option>
+      </select>
+      <select name="data" id="">
+        <option value="days">day</option>
+        <option value="">test</option>
+      </select>
+      <select name="data" id="">
+        <option value="days">day</option>
+        <option value="">test</option>
+      </select>
+    </div>
+  <hr>
+
+<body>
+
+  <header class="">
+  
+    <div class="aqs">
+        {% block content %}
+
+        {% for obj in qs %}
+    
+    <div class="forms">
+        <nav class="hear">
+          <ul>
+            <li id="asdfgh">{{obj.name}}</li> 
+            <li>{{obj.information}}</li>
+            <li>{{obj.hour}}</li>        
+            <li><a href="{% url 'app:delete_agenda' obj.id %}" class="btn btn-danger">delete</a></li>
+            <div class="space">
+
+            </div> 
+        </ul>
+      </nav>
+    </div>
+    <br>  
+       
+        
+        {% endfor %}
+
+        {% endblock %}
+
+  </header>
+
+  <input type="date" name="" id="date-pickery"> 
+
+
+<script>
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    if(month <=10){
+        var month = String(date.getMonth()+1).padStart(2,'0');
+    } else{
+        var month = String(date.getMonth()+1)
+    }
+
+
+
+    var todayDate = String(date.getDate()).padStart(2,'0');
+    var datePattern = year + '-' + month + '-' + todayDate;
+    document.getElementById("date-pickery").value = datePattern ;
+    
+  </script>
+
+</body>
+
+</html>
